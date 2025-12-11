@@ -20,12 +20,12 @@ echo "ผลบวกของ $a กับ $b คือ = " . sum($a, $b) . "<b
 $num = 50;
 echo "ค่าของ num ก่อนเรียกฟังก์ชัน add_five() คือ $num<br>";
 
-$new_num = add_five($num);  
+$new_num = add_five($num);
 echo "ค่าที่ได้จาก add_five() คือ $new_num<br>";
 echo "ค่าของ num หลังการเรียกฟังก์ชัน add_five() คือ $num (ค่าไม่เปลี่ยน เพราะส่งแบบค่า)<br>";
 ?>
 
-<h2>ตัวอย่าง function ที่มีพารามิเตอร์หลายตัว </h2>
+<h2>ตัวอย่าง function ที่มีพารามิเตอร์หลายตัว</h2>
 
 <?php
 function sumListofNumber(...$x){
@@ -39,18 +39,35 @@ function sumListofNumber(...$x){
 echo "ผลบวกของตัวเลข 10, 20, 30 คือ = " . sumListofNumber(10,20,30) . "<br>";
 echo "ผลบวกของตัวเลข 1-10 คือ = " . sumListofNumber(1,2,3,4,5,6,7,8,9,10) . "<br>";
 
-
-// ฟังก์ชันที่รับชื่อหลายคน
 function myFamilyNames($lastName, ...$names){
     foreach($names as $firstName){
-        echo "สวัสดี คุณ  " . $firstName . " " . $lastName . "<br>";
+        echo "สวัสดี คุณ " . $firstName . " " . $lastName . "<br>";
     }
 }
 
-// เรียกใช้ function myFamily
 myFamilyNames("สวยใส","สมชาย","สมศักดิ์","สมหมาย","สมพร");
 ?>
 
+<h2>ตัวอย่าง function ที่มีพารามิเตอร์ค่าเริ่มต้น</h2>
+
+<?php
+function thai_date($strDate = "now"){
+    $strYear = date("Y",strtotime($strDate)) + 543;
+    $strMonth = date("n",strtotime($strDate));
+    $strDay = date("j",strtotime($strDate));
+
+    $strMonthNames = ["","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน",
+                      "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"];
+
+    
+    $strMonthThai = $strMonthNames[$strMonth];
+
+    return "$strDay $strMonthThai พ.ศ. $strYear";
+}
+
+echo thai_date("2025-12-11") . "<br>";
+echo thai_date(); 
+?>
 </body>
 </html>
 
