@@ -47,5 +47,40 @@
         echo "ค่าสูงสุดใน array คือ " . max($arr) . "<br>";
         echo "ค่าต่ำสุดใน array คือ " . min($arr) . "<br>";
     ?>
+
+    <h2>ทดสอบการใช้ String Function</h2>
+    <?php
+        $str = "  Hello, PHP Functions!  ";
+
+        echo "ความยาวของสตริง '$str' คือ " . strlen($str) . "<br>";
+        echo "สตริง '$str' เมื่อแปลงเป็นตัวพิมพ์ใหญ่ทั้งหมด คือ '" . strtoupper($str) . "'<br>";
+        echo "สตริง '$str' เมื่อแปลงเป็นตัวพิมพ์เล็กทั้งหมด คือ '" . strtolower($str) . "'<br>";
+        echo "สตริง '$str' เมื่อให้ตัวอักษรแรกเป็นตัวใหญ่ คือ '" . ucfirst($str) . "'<br>";
+        echo "สตริง '$str' เมื่อให้ตัวแรกของทุกคำเป็นตัวใหญ่ คือ '" . ucwords($str) . "'<br>";
+
+        $substr = "PHP";
+        echo "ตำแหน่งของคำว่า '$substr' ในสตริง '$str' คือ " . strpos($str, $substr) . "<br>";
+
+        $replace = str_replace("Functions", "ฟังก์ชัน", $str);
+        echo "เมื่อแทนที่คำว่า 'Functions' ด้วย 'ฟังก์ชัน' จะได้: '" . $replace . "'<br>";
+
+        $str2 = "    PHP     Function     with     Spaces    ";
+        echo "สตริงก่อนลบช่องว่างด้านหน้าและด้านหลัง: '" . $str2 . "'<br>";
+        echo "สตริงหลังลบช่องว่างด้านหน้าและด้านหลัง: '" . trim($str2) . "'<br>";
+    ?>
+    <?php myFooter(); ?>   <!-- เรียกใช้ function -->
+
+</body>
+</html>
+
+<?php
+function myFooter() {
+    echo "<footer><hr>";
+    echo "<p>PHP Built-in Function Example &copy; 2024</p>";
+    echo "<p>สร้างโดย: Adsanai Nakphu</p>";
+    echo "</footer>";
+}
+?>
+
 </body>
 </html>
